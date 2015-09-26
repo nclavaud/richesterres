@@ -6,10 +6,8 @@
     <table class="records_list table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Uuid</th>
-                <th>Farmname</th>
-                <th>Farmcategory</th>
+                <th>Exploitation</th>
+                <th>Type</th>
                 <th>Note environnement</th>
                 <th>Note santé</th>
                 <th>Note social</th>
@@ -19,8 +17,6 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('admin_evaluation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.uuid }}</td>
                 <td>{{ entity.farmName }}</td>
                 <td>{{ entity.farmCategory }}</td>
                 <td>{{ entity.ratingEnvironment }}</td>

@@ -20,7 +20,10 @@ class EvaluationType extends AbstractType
             ->add('farmCategory', 'choice', array(
                 'label' => "Catégorie",
                 'choices' => array(
-                    "Brasseur" => 'brasseur',
+                    'brasseur' => "Brasseur",
+                    'cerealier' => "Céréalier",
+                    'eleveur' => "Éleveur",
+                    'maraicher' => "Maraîcher",
                 ),
             ))
             ->add('farmPositionLatitude')
