@@ -3,10 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Riches Terres{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block header %}
+        <div class="header"><a href="/">Riches Terres</a></div>
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
