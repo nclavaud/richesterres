@@ -59,6 +59,13 @@ class Evaluation
     /**
      * @var string
      *
+     * @ORM\Column(name="farm_website_url", type="string", length=255, nullable=true)
+     */
+    private $farmWebsiteUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="farm_photo_url", type="string", length=255)
      */
     private $farmPhotoUrl;
@@ -216,15 +223,39 @@ class Evaluation
     }
 
     /**
+     * Set farmWebsiteUrl
+     *
+     * @param string $farmWebsiteUrl
+     *
+     * @return Evaluation
+     */
+    public function setFarmWebsiteUrl($url)
+    {
+        $this->farmWebsiteUrl = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get farmPhotoUrl
+     *
+     * @return string
+     */
+    public function getFarmWebsiteUrl()
+    {
+        return $this->farmWebsiteUrl;
+    }
+
+    /**
      * Set farmPhotoUrl
      *
      * @param string $farmPhotoUrl
      *
      * @return Evaluation
      */
-    public function setFarmPhotoUrl($farmPhotoUrl)
+    public function setFarmPhotoUrl($url)
     {
-        $this->farmPhotoUrl = $farmPhotoUrl;
+        $this->farmPhotoUrl = $url;
 
         return $this;
     }

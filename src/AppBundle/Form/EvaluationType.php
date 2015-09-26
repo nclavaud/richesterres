@@ -28,6 +28,7 @@ class EvaluationType extends AbstractType
             ))
             ->add('farmPositionLatitude')
             ->add('farmPositionLongitude')
+            ->add('farmWebsiteUrl')
             ->add('farmPhotoUrl')
             ->add('ratingEnvironment')
             ->add('ratingHealth')
