@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Form\EvaluationType;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -172,6 +174,11 @@ class Evaluation
     public function getFarmCategory()
     {
         return $this->farmCategory;
+    }
+
+    public function getFarmCategoryName()
+    {
+        return EvaluationType::$categories[$this->farmCategory];
     }
 
     /**
