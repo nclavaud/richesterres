@@ -4,21 +4,23 @@
     <div id="wrapper">
         <div id="container">
             <h1>{{ evaluation.farmName }}</h1>
-            <div class="right">
-                <img src="https://maps.googleapis.com/maps/api/staticmap?{{
-                    [
-                        'size=300x200',
-                        'zoom=8',
-                        'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
-                        'key=' ~ google_api_key,
-                        'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
-                    ]|join('&')
-                }}" />
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ evaluation.farmPhotoUrl }}" width="100%" />
+                </div>
+                <div class="col-md-6">
+                    <img src="https://maps.googleapis.com/maps/api/staticmap?{{
+                        [
+                            'size=300x200',
+                            'zoom=8',
+                            'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
+                            'key=' ~ google_api_key,
+                            'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
+                        ]|join('&')
+                    }}" />
+                </div>
             </div>
-            <div>
-                <img src="{{ evaluation.farmPhotoUrl }}" width="400" />
-                <p><a href="{{ evaluation.farmWebsiteUrl }}">{{ evaluation.farmWebsiteUrl }}</a></p>
-            </div>
+            <p><a href="{{ evaluation.farmWebsiteUrl }}" target="_blank">{{ evaluation.farmWebsiteUrl }}</a></p>
         </div>
     </div>
 {% endblock %}
