@@ -3,6 +3,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Evaluation;
+use AppBundle\Form\EvaluationFilter;
+use AppBundle\Form\EvaluationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,10 +18,18 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $evaluations = $this->getRepository()->findAll();
+        $evaluations = array();
 
+        $filterForm = $this->createFilterForm();
+        $filterForm->handleRequest($request);
+
+        if (!$filterForm->isSubmitted() || $filterForm->isValid()) {
+            $evaluations = $this->getRepository()->filter($filterForm->getData());
+        }
+    
         return array(
             'evaluations' => $evaluations,
+            'filter_form' => $filterForm->createView(),
         );
     }
 
@@ -32,6 +42,20 @@ class DefaultController extends Controller
         return array(
             'evaluation' => $evaluation,
         );
+    }
+
+    private function createFilterForm()
+    {
+        $defaultData = array(
+            'category' => null,
+            'minRatingEnvironment' => 0,
+            'minRatingHealth' => 0,
+            'minRatingSocial' => 0,
+        );
+        
+        return $this->createForm(new EvaluationFilter(), $defaultData, array(
+            'method' => 'GET',
+        ));
     }
 
     private function getRepository()

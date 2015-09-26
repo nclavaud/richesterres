@@ -8,6 +8,12 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class EvaluationType extends AbstractType
 {
+    public static $categories = array(
+        'cerealier' => "Céréalier",
+        'eleveur' => "Éleveur",
+        'maraicher' => "Maraîcher",
+    );
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -19,12 +25,7 @@ class EvaluationType extends AbstractType
             ->add('farmName')
             ->add('farmCategory', 'choice', array(
                 'label' => "Catégorie",
-                'choices' => array(
-                    'brasseur' => "Brasseur",
-                    'cerealier' => "Céréalier",
-                    'eleveur' => "Éleveur",
-                    'maraicher' => "Maraîcher",
-                ),
+                'choices' => self::$categories,
             ))
             ->add('farmPositionLatitude')
             ->add('farmPositionLongitude')
