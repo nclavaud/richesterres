@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Evaluation;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,17 +14,25 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $evaluations = $this->getRepository()->findAll();
+
         return $this->render('default/index.html.twig', array(
+            'evaluations' => $evaluations,
         ));
     }
 
     /**
-     * @Route("/detail", name="detail")
+     * @Route("/{id}", name="detail")
      */
-    public function detailAction(Request $request)
+    public function detailAction(Evaluation $evaluation, Request $request)
     {
         return $this->render('default/detail.html.twig', array(
+            'evaluation' => $evaluation,
         ));
+    }
+
+    private function getRepository()
+    {
+        return $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle\Entity\Evaluation');
     }
 }
