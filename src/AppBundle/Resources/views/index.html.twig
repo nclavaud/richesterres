@@ -7,13 +7,21 @@
 {% block body %}
     <div id="wrapper">
         <div id="container">
-            <div id="map" style="height: 400px;"></div>
-            {{ form(filter_form) }}
+            <div class="row">
+                <div class="col-md-9">
+                    <div id="map" style="height: 400px;"></div>
+                </div>
+                <div class="col-md-3">
+                    {{ form(filter_form) }}
+                </div>
+            </div>
+            {#
             <ul>
                 {% for evaluation in evaluations %}
                 <li><a href="/{{ evaluation.id }}">{{ evaluation.farmName }}</a></li>
                 {% endfor %}
             </ul>
+            #}
         </div>
     </div>
 {% endblock %}
