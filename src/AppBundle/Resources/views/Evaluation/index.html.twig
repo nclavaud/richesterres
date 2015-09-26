@@ -1,0 +1,51 @@
+{% extends '::base_admin.html.twig' %}
+
+{% block body -%}
+    <h1>Liste des évaluations</h1>
+
+    <table class="records_list table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Uuid</th>
+                <th>Farmname</th>
+                <th>Farmcategory</th>
+                <th>Note environnement</th>
+                <th>Note santé</th>
+                <th>Note social</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_evaluation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.uuid }}</td>
+                <td>{{ entity.farmName }}</td>
+                <td>{{ entity.farmCategory }}</td>
+                <td>{{ entity.ratingEnvironment }}</td>
+                <td>{{ entity.ratingHealth }}</td>
+                <td>{{ entity.ratingSocial }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_evaluation_show', { 'id': entity.id }) }}">voir</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_evaluation_edit', { 'id': entity.id }) }}">éditer</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_evaluation_new') }}">
+                Renseigner une nouvelle évaluation
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

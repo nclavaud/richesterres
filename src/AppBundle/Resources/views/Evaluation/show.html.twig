@@ -1,0 +1,64 @@
+{% extends '::base_admin.html.twig' %}
+
+{% block body -%}
+    <h1>Évaluation</h1>
+
+    <table class="record_properties table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Uuid</th>
+                <td>{{ entity.uuid }}</td>
+            </tr>
+            <tr>
+                <th>Farmname</th>
+                <td>{{ entity.farmName }}</td>
+            </tr>
+            <tr>
+                <th>Farmcategory</th>
+                <td>{{ entity.farmCategory }}</td>
+            </tr>
+            <tr>
+                <th>Farmpositionlatitude</th>
+                <td>{{ entity.farmPositionLatitude }}</td>
+            </tr>
+            <tr>
+                <th>Farmpositionlongitude</th>
+                <td>{{ entity.farmPositionLongitude }}</td>
+            </tr>
+            <tr>
+                <th>Farmphotourl</th>
+                <td>{{ entity.farmPhotoUrl }}</td>
+            </tr>
+            <tr>
+                <th>Ratingenvironment</th>
+                <td>{{ entity.ratingEnvironment }}</td>
+            </tr>
+            <tr>
+                <th>Ratinghealth</th>
+                <td>{{ entity.ratingHealth }}</td>
+            </tr>
+            <tr>
+                <th>Ratingsocial</th>
+                <td>{{ entity.ratingSocial }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_evaluation') }}">
+            Retour à la liste
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_evaluation_edit', { 'id': entity.id }) }}">
+            Modifier
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
