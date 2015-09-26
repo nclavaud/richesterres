@@ -8,7 +8,9 @@
             </div>
 
             <ul>
-                <li><a href="/detail">Détail</a></li>
+                {% for evaluation in evaluations %}
+                <li><a href="/{{ evaluation.id }}">{{ evaluation.farmName }}</a></li>
+                {% endfor %}
             </ul>
         </div>
     </div>
