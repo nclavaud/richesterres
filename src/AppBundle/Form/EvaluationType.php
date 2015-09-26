@@ -22,18 +22,20 @@ class EvaluationType extends AbstractType
     {
         $builder
             ->add('uuid')
-            ->add('farmName')
+            ->add('farmName', 'text', array(
+                'label' => "Nom de l'exploitation",
+            ))
             ->add('farmCategory', 'choice', array(
                 'label' => "Catégorie",
                 'choices' => self::$categories,
             ))
-            ->add('farmPositionLatitude')
-            ->add('farmPositionLongitude')
-            ->add('farmWebsiteUrl')
-            ->add('farmPhotoUrl')
-            ->add('ratingEnvironment')
-            ->add('ratingHealth')
-            ->add('ratingSocial')
+            ->add('farmPositionLatitude', 'text', array('label' => "Latitude"))
+            ->add('farmPositionLongitude', 'text', array('label' => "Longitude"))
+            ->add('farmWebsiteUrl', 'text', array('label' => "Site web de l'exploitation"))
+            ->add('farmPhotoUrl', 'text', array('label' => "Photo de l'exploitation"))
+            ->add('ratingEnvironment', 'integer', array('label' => "Note Environnement"))
+            ->add('ratingHealth', 'integer', array('label' => "Note Santé"))
+            ->add('ratingSocial', 'integer', array('label' => "Note Social"))
         ;
     }
     
