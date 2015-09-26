@@ -19,6 +19,20 @@
 <script type="text/javascript">
 var map;
 
+{# todo: ajax call #}
+var markers = [];
+{% for evaluation in evaluations %}
+markers.push(
+    {
+        name: "{{ evaluation.farmName }}",
+        url: "/{{ evaluation.id }}",
+        lat: {{ evaluation.farmPositionLatitude }},
+        lng: {{ evaluation.farmPositionLongitude }}
+    }
+);
+{% endfor %}
+console.debug(markers);
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 48.8588748, lng: 2.294307},
@@ -26,16 +40,28 @@ function initMap() {
         zoom: 6
     });
 
-    var myLatLng = {lat: 48.0, lng: 2.29};
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
+    var infowindow = new google.maps.InfoWindow({
+        'content': '...'
     });
-}
 
-(function($) {
-})(jQuery);
+    for (var i = 0; i < markers.length; i++) {
+        marker = markers[i];
+        console.debug(marker);
+        var m = new google.maps.Marker({
+            position: {
+                lat: marker.lat,
+                lng: marker.lng
+            },
+            map: map,
+            title: marker.name,
+            html: '<div><a href="' + marker.url + '">' + marker.name + '</a></div>'
+        });
+        google.maps.event.addListener(m, 'click', function () {
+            infowindow.setContent(this.html);
+            infowindow.open(map, this);
+        });
+    }
+}
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap" async defer></script>
 {% endblock %}
