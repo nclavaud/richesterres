@@ -10,7 +10,7 @@ parameters:
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
-    google_api_key:    null
+    google_api_key:    ~
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
