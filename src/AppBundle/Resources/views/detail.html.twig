@@ -1,26 +1,204 @@
 {% extends 'base.html.twig' %}
 
+{% block header %}{% endblock %}
+
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <h1>{{ evaluation.farmName }} <small>{{ evaluation.farmCategoryName }}</small></h1>
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="{{ evaluation.farmPhotoUrl }}" width="100%" />
-                </div>
-                <div class="col-md-6">
-                    <img src="https://maps.googleapis.com/maps/api/staticmap?{{
-                        [
-                            'size=300x200',
-                            'zoom=8',
-                            'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
-                            'key=' ~ google_api_key,
-                            'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
-                        ]|join('&')
-                    }}" />
-                </div>
+        <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+          <div class="container">
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="/" class="navbar-brand">Riches Terres</a>
             </div>
-            <p><a href="{{ evaluation.farmWebsiteUrl }}" target="_blank">{{ evaluation.farmWebsiteUrl }}</a></p>
+            <nav class="collapse navbar-collapse" role="navigation">
+              <ul class="nav navbar-right navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                  <ul class="dropdown-menu" style="padding:12px;">
+                    <form class="form-inline">
+                      <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                    </form>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <div id="masthead">  
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="lisert" style="background:#38927A; height:5px; width:100%; margin-top:120px;"></div>
+                <div class="top-spacer">
+                    <h1>{{ evaluation.FarmName }}
+                      <p class="lead">{{ evaluation.farmCategoryName }}</p>
+                    </h1>
+                </div>
+              </div>
+            </div> 
+          </div><!-- /cont -->
         </div>
-    </div>
+
+        <div class="container">
+          <div class="row">
+            
+            <div class="col-md-12"> 
+              
+              <div class="panel">
+                <div class="panel-body">
+                  
+                    <div class="row">
+
+                        <!-- LEFT -->
+                        <div class="col-md-4" style="padding:24px;">
+                            <h2>Echelle de Richesterres</h2>
+                            <img src="img/RichesTerres.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer;">
+                            <h2>Où sommes-nous ?</h2>
+                            <div id="map">
+                                <img src="https://maps.googleapis.com/maps/api/staticmap?{{
+                                    [
+                                        'size=320x190',
+                                        'zoom=8',
+                                        'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
+                                        'key=' ~ google_api_key,
+                                        'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
+                                    ]|join('&')
+                                }}" />
+                            </div>
+                            <h2>Partager</h2>
+                            <input type="text" placeholder="http://rt.ly/1337" id="share"><br>
+                            <div class="btn-group" style="margin:auto; width:150px; display:block;">
+                                    <a class="btn btn-twitter btn-lg" href="#"><i class="fa fa-twitter icon-large"></i></a>
+                                   <a class="btn btn-facebook btn-lg" href="#"><i class="fa fa-facebook icon-large"></i></a>
+                                   <a class="btn btn-google-plus btn-lg" href="#"><i class="fa fa-google-plus icon-large"></i></a>
+                              </div>
+                        </div>
+                        <!-- / LEFT -->
+
+                        <!-- RIGHT -->
+                        <div class="col-md-8" id="right">
+                            
+                            <div class="row td-1">
+                                <div class="col-md-4" style="margin-top:24px;">
+                                    <img src="img/farmer.png" alt="Dat Farmer" class="rounded">
+                                </div>
+                                <div class="col-md-8">
+                                    <h3>Marcel Wallace - Agriculteur</h3>
+                                    <p class="quote">
+                                        Des produits de qualité, des vaches traitées (sans jeu de mot) avec amour tel est son credo.
+                                        Trois fois médaillé pour la qualité de son lait, fume la pipe sans avaler la fumée, du grand art. Ne tolère pas la présence de mauvaises herbes dans son champ, "<i>mes vachent ne mangent que la meilleure herbe</i>" nous précise-t'il non sans une certaine fierté.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row td-2" style="padding-top:24px;">
+                                <h2 style="margin-bottom:24px; margin-left:12px; text-align:left;">L'exploitation</h2>
+                                <div class="col-md-6">
+                                    <a href="{{ evaluation.farmPhotoUrl }}" class="popup"><img src="{{ evaluation.farmPhotoUrl }}" alt="Photo de l'exploitation" class="responsive fancy-image"></a>
+                                </div>
+                            </div>
+
+                            <div class="row hidden showMe" style="margin-right:8px;">
+                                <a href="#" class="btn btn-info"><i class="fa fa-arrow-left"></i></a>
+                                <h2>Environement</h2>
+                                <table class="table">
+                                    <tr>
+                                        <td width="25%">
+                                            <h4>Paramètre</h4>
+                                        </td>
+                                        <td>
+                                            <span>4/5</span>
+                                        </td>
+                                        <td>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque veniam, commodi ipsum minima in quos recusandae? Sunt quisquam dolorum modi eligendi eos, commodi sint fugiat atque maiores dolorem, eveniet odio!</p>
+                                        </td>
+                                        <td>
+                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <h4>Paramètre</h4>
+                                        </td>
+                                        <td>
+                                            <span>4/5</span>
+                                        </td>
+                                        <td>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium cupiditate hic facere ea veritatis illo quidem dolor eum ipsum adipisci, nostrum qui magni, totam alias eveniet fuga. Dignissimos, nobis, laudantium.</p>
+                                        </td>
+                                        <td>
+                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <h4>Paramètre</h4>
+                                        </td>
+                                        <td>
+                                            <span>4/5</span>
+                                        </td>
+                                        <td>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quis accusantium rem dicta consectetur aut blanditiis harum quibusdam voluptatum, praesentium tempora maiores repudiandae excepturi impedit nihil vitae cum, nesciunt. Doloribus!</p>
+                                        </td>
+                                        <td>
+                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                        </td>
+                                    </tr>
+                                    <tr style="background:#eee;">
+                                        <td>
+                                            <h4 style="color:#000"><b>Moyenne</b></h4>
+                                        </td>
+                                        <td>
+                                            <span>4/5</span>
+                                        </td>
+                                        <td>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis atque voluptate, suscipit similique eligendi amet aperiam, impedit, id ea tenetur voluptatum praesentium laboriosam asperiores rem accusantium qui! Id, odit!</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+                        <!-- / RIGHT -->
+                    </div>
+
+                </div>
+              </div>
+                                                                                               
+                                                            
+                                                              
+            </div><!--/col-12-->
+          </div>
+        </div>
+        <hr />
+
+        <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <h3>Réseaux sociaux</h3>
+                  <div class="btn-group">
+                   <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+                   <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+                   <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <h3 style="text-align:center;">Mentions légales</h3>
+                <p class="copyright" style="text-align:center;">
+                    © 2015 Tous droits réservés Riches Terres<br>
+                    Réalisé avec <span>♥</span> par <a href="http://baptiste-wallerich.fr">Baptiste Wallerich</a>
+                </p>
+            </div>
+          </div>
+        </footer>
+        
+        <!-- POPUP -->
+        <div id="test-popup" class="white-popup mfp-hide">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus consequuntur obcaecati perferendis? Eius omnis, doloribus voluptate laudantium excepturi, facilis magni tempora tempore quos ipsa asperiores minus assumenda repellendus consectetur voluptates!</p>
+        </div>
 {% endblock %}
