@@ -36,12 +36,19 @@
                                     <polygon points="{{ point_mid[0] }},{{ point_mid[1] }} {{ point_hea[0] }},{{ point_hea[1] }} {{ point_soc[0] }},{{ point_soc[1] }}" style="fill: #2db34b;" />
                                     <polygon points="{{ point_mid[0] }},{{ point_mid[1] }} {{ point_env[0] }},{{ point_env[1] }} {{ point_soc[0] }},{{ point_soc[1] }}" style="fill: #71c15e;" />
                                 </svg>
-                                <img src="img/richesterres-blank.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer; width: 297px; height: 297px;">
+                                <img src="img/richesterres-blank.png" alt="Riches Terres" class="responsive" style="margin-bottom: 10px; cursor:pointer; width: 297px; height: 297px;">
                             </div>
-                            <p style="text-align: center;">
+                            <p style="text-align: center; margin-bottom: 2em;">
                                 Certifié par
                                 <img src="img/ecocert.png" alt="Ecocert" style="height: 40px;"/>
                             </p>
+                            <table class="table">
+                                <tbody>
+                                    <tr><th>Valeur environnementale</th><td>{{ evaluation.ratingEnvironment }} / 9</td></tr>
+                                    <tr><th>Valeur nutritionnelle</td><td>{{ evaluation.ratingHealth }} / 9</td></tr>
+                                    <tr><th>Valeur sociale</th><td>{{ evaluation.ratingSocial }} / 9</td></tr>
+                                </tbody>
+                            </table>
 
                             <!--
                             <hr />
