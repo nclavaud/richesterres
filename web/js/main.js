@@ -26,7 +26,8 @@ $(document).ready(function(){
 	var transition = "fadeOutRight";
 
 
-	$("img").not('.fancy-image').click(function(){
+	$("#rating").click(function(event) {
+        event.preventDefault();
 
 		$("#right").children().each(function(index){
 			$(this).addClass('animated '+transition);
@@ -37,7 +38,6 @@ $(document).ready(function(){
 		});
 
 		setTimeout(function(){
-
 			$(".showMe").show();
 			$(".showMe").removeClass('hidden');
 			$(".showMe").removeClass('animated '+transition);
@@ -46,7 +46,8 @@ $(document).ready(function(){
 
 	});
 
-	$('.btn-info').click(function(){
+	$('.btn-info').click(function(event) {
+        event.preventDefault();
 
 		$(".showMe").fadeOut(1000);
 		$(".td-1, .td-2").fadeIn(1200);

@@ -276,3 +276,12 @@ table td {
 .mfp-with-zoom.mfp-removing.mfp-bg {
   opacity: 0;
 }
+
+#rating {
+    cursor: pointer;
+}
+
+.description {
+    text-align: left;
+    font-size: 0.8em;
+}

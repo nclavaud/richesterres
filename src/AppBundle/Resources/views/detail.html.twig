@@ -30,7 +30,14 @@
                         <!-- LEFT -->
                         <div class="col-md-4" style="padding:24px;">
                             <h2>Échelle de Riches Terres</h2>
-                            <img src="img/RichesTerres.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer;">
+                            <div style="position: relative;" id="rating">
+                                <svg height="300" width="300" style="position: absolute; top: 10px; left: 0px;">
+                                    <polygon points="150,150 150,{{ 150 - 9*12 }} 240,200" style="fill: #0b8743;" />
+                                    <polygon points="150,150 240,200 60,200" style="fill: #2db34b;" />
+                                    <polygon points="150,150 150,{{ 150 - 9*12 }} 60,200" style="fill: #71c15e;" />
+                                </svg>
+                                <img src="img/richesterres-blank.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer; width: 297px; height: 297px;">
+                            </div>
                             <p style="text-align: center;">
                                 Certifié par
                                 <img src="img/ecocert.png" alt="Ecocert" style="height: 40px;"/>
@@ -83,59 +90,72 @@ Située au pied de l’Ursumu et du pic du Mondarrain, HARANEA est une petite fe
 
                             <div class="row hidden showMe" style="margin-right:8px;">
                                 <a href="#" class="btn btn-info"><i class="fa fa-arrow-left"></i></a>
-                                <h2>Environnement</h2>
+                                <h2>Environnement / Climat</h2>
                                 <table class="table">
                                     <tr>
                                         <td width="25%">
-                                            <h4>Paramètre</h4>
+                                            <h4>Biodiversité agricole</h4>
                                         </td>
                                         <td>
-                                            <span>4/5</span>
+                                            <img src="{{ asset('img/check.gif') }}" alt="" style="height: 40px;" />
                                         </td>
-                                        <td>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque veniam, commodi ipsum minima in quos recusandae? Sunt quisquam dolorum modi eligendi eos, commodi sint fugiat atque maiores dolorem, eveniet odio!</p>
-                                        </td>
-                                        <td>
-                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                        <td class="description">
+                                            <p>Christian Aguerre est un des sauveurs de la race porcine Kintoa. Il a planté un conservatoire de cinquante variétés anciennes de pommes. Il nourrit ses porcs avec un maïs "population" (grand roux basque).</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="25%">
-                                            <h4>Paramètre</h4>
+                                            <h4>Agriculture biologique</h4>
                                         </td>
                                         <td>
-                                            <span>4/5</span>
+                                            <img src="{{ asset('img/check.gif') }}" alt="" style="height: 40px;" />
                                         </td>
-                                        <td>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium cupiditate hic facere ea veritatis illo quidem dolor eum ipsum adipisci, nostrum qui magni, totam alias eveniet fuga. Dignissimos, nobis, laudantium.</p>
-                                        </td>
-                                        <td>
-                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                        <td class="description">
+                                            <p>En bio depuis 2010.</p>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="25%">
-                                            <h4>Paramètre</h4>
+                                            <h4>Agro-foresterie</h4>
                                         </td>
                                         <td>
-                                            <span>4/5</span>
+                                            <img src="{{ asset('img/check.gif') }}" alt="" style="height: 40px;" />
+                                        </td>
+                                        <td class="description">
+                                            <p><a href="http://www.agroforesterie.fr/" target="_blank">Lien vers l'Association Française d'Agro-Foresterie</a></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <h4>Permaculture</h4>
                                         </td>
                                         <td>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi quis accusantium rem dicta consectetur aut blanditiis harum quibusdam voluptatum, praesentium tempora maiores repudiandae excepturi impedit nihil vitae cum, nesciunt. Doloribus!</p>
+                                            <img src="{{ asset('img/check.gif') }}" alt="" style="height: 40px;" />
+                                        </td>
+                                        <td class="description">
+                                            <p>Sols sous couvert végétal vivant permanent.</p>
+                                            <p><a href="http://www.fermedubec.com/" target="_blank">Lien vers le site de la Ferme du Bec Hellouin</a></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="25%">
+                                            <h4>Niveau de pétro-dépendance</h4>
                                         </td>
                                         <td>
-                                            <a href="#test-popup" class="btn btn-primary popup-text">Détails</a>
+                                            Peu élevé
+                                        </td>
+                                        <td class="description">
+                                            <p>Un tracteur, deux véhicules utilitaires, aucun intrant issu de la chimie du pétrole.</p>
                                         </td>
                                     </tr>
                                     <tr style="background:#eee;">
                                         <td>
-                                            <h4 style="color:#000"><b>Moyenne</b></h4>
+                                            <h4 style="color:#000"><b>Valeur globale</b></h4>
                                         </td>
                                         <td>
-                                            <span>4/5</span>
+                                            <span>8/9</span>
                                         </td>
                                         <td>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quis atque voluptate, suscipit similique eligendi amet aperiam, impedit, id ea tenetur voluptatum praesentium laboriosam asperiores rem accusantium qui! Id, odit!</p>
                                         </td>
                                     </tr>
                                 </table>
