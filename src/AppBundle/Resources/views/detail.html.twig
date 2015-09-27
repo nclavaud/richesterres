@@ -29,20 +29,14 @@
 
                         <!-- LEFT -->
                         <div class="col-md-4" style="padding:24px;">
-                            <h2>Echelle de Richesterres</h2>
+                            <h2>Échelle de Riches Terres</h2>
                             <img src="img/RichesTerres.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer;">
-                            <h2>Où sommes-nous ?</h2>
-                            <div id="map">
-                                <img src="https://maps.googleapis.com/maps/api/staticmap?{{
-                                    [
-                                        'size=320x190',
-                                        'zoom=8',
-                                        'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
-                                        'key=' ~ google_api_key,
-                                        'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
-                                    ]|join('&')
-                                }}" />
-                            </div>
+                            <p style="text-align: center;">
+                                Certifié par
+                                <img src="img/ecocert.png" alt="Ecocert" style="height: 40px;"/>
+                            </p>
+
+                            <hr />
                             <h2>Partager</h2>
                             <input type="text" placeholder="http://rt.ly/1337" id="share"><br>
                             <div class="btn-group" style="margin:auto; width:150px; display:block;">
@@ -58,13 +52,12 @@
                             
                             <div class="row td-1">
                                 <div class="col-md-4" style="margin-top:24px;">
-                                    <img src="img/farmer.png" alt="Dat Farmer" class="rounded">
+                                    <img src="img/christian.jpg" alt="Dat Farmer" class="rounded">
                                 </div>
                                 <div class="col-md-8">
-                                    <h3>Marcel Wallace - Agriculteur</h3>
+                                    <h3>Christian Aguerre</h3>
                                     <p class="quote">
-                                        Des produits de qualité, des vaches traitées (sans jeu de mot) avec amour tel est son credo.
-                                        Trois fois médaillé pour la qualité de son lait, fume la pipe sans avaler la fumée, du grand art. Ne tolère pas la présence de mauvaises herbes dans son champ, "<i>mes vachent ne mangent que la meilleure herbe</i>" nous précise-t'il non sans une certaine fierté.
+Située au pied de l’Ursumu et du pic du Mondarrain, HARANEA est une petite ferme au relief pentu sur laquelle nous valorisons plusieurs productions : les poulets et les œufs, le porc basque et le piment d’Espelette. 
                                     </p>
                                 </div>
                             </div>
@@ -73,11 +66,24 @@
                                 <div class="col-md-6">
                                     <a href="{{ evaluation.farmPhotoUrl }}" class="popup"><img src="{{ evaluation.farmPhotoUrl }}" alt="Photo de l'exploitation" class="responsive fancy-image"></a>
                                 </div>
+                                <div class="col-md-6">
+                                    <div id="map">
+                                        <img src="https://maps.googleapis.com/maps/api/staticmap?{{
+                                            [
+                                                'size=340x260',
+                                                'zoom=8',
+                                                'center=' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude,
+                                                'key=' ~ google_api_key,
+                                                'markers=|' ~ evaluation.farmPositionLatitude ~ ',' ~ evaluation.farmPositionLongitude
+                                            ]|join('&')
+                                        }}" />
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row hidden showMe" style="margin-right:8px;">
                                 <a href="#" class="btn btn-info"><i class="fa fa-arrow-left"></i></a>
-                                <h2>Environement</h2>
+                                <h2>Environnement</h2>
                                 <table class="table">
                                     <tr>
                                         <td width="25%">

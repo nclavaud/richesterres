@@ -6,7 +6,7 @@ p { margin: 0 0 1em 0; }
 a { color: #0000F0; }
 a:hover { text-decoration: none; }
 code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-#wrapper, .header { margin: 0.5em auto; max-width: 800px; width: 95%; }
+#wrapper, .header { margin: 0.5em auto; max-width: 1200px; width: 95%; }
 #container { padding: 1em 2em; }
 #welcome, #status { margin-bottom: 2em; }
 #welcome h1 span { display: block; font-size: 75%; }
