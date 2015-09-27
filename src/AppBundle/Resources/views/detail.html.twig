@@ -32,9 +32,9 @@
                             <h2>Échelle de Riches Terres</h2>
                             <div style="position: relative;" id="rating">
                                 <svg height="300" width="300" style="position: absolute; top: 10px; left: 0px;">
-                                    <polygon points="150,150 150,{{ 150 - 9*12 }} 240,200" style="fill: #0b8743;" />
-                                    <polygon points="150,150 240,200 60,200" style="fill: #2db34b;" />
-                                    <polygon points="150,150 150,{{ 150 - 9*12 }} 60,200" style="fill: #71c15e;" />
+                                    <polygon points="{{ point_mid[0] }},{{ point_mid[1] }} {{ point_env[0] }},{{ point_env[1] }} {{ point_hea[0] }},{{ point_hea[1] }}" style="fill: #0b8743;" />
+                                    <polygon points="{{ point_mid[0] }},{{ point_mid[1] }} {{ point_hea[0] }},{{ point_hea[1] }} {{ point_soc[0] }},{{ point_soc[1] }}" style="fill: #2db34b;" />
+                                    <polygon points="{{ point_mid[0] }},{{ point_mid[1] }} {{ point_env[0] }},{{ point_env[1] }} {{ point_soc[0] }},{{ point_soc[1] }}" style="fill: #71c15e;" />
                                 </svg>
                                 <img src="img/richesterres-blank.png" alt="Riches Terres" class="responsive" style="margin-bottom:36px; cursor:pointer; width: 297px; height: 297px;">
                             </div>

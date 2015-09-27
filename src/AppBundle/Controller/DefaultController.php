@@ -41,7 +41,22 @@ class DefaultController extends Controller
     {
         return array(
             'evaluation' => $evaluation,
+            'point_mid' => array(150, 150),
+            'point_env' => $this->getCoordinates(0, $evaluation->getRatingEnvironment()*12, 180),
+            'point_hea' => $this->getCoordinates(0, $evaluation->getRatingHealth()*12, -60),
+            'point_soc' => $this->getCoordinates(0, $evaluation->getRatingSocial()*12, 60),
         );
+    }
+
+    private function getCoordinates($x, $y, $angle)
+    {
+        $a = deg2rad($angle);
+
+        $ox=0;$oy=0;
+        $dx = 150 + ( cos($a) * ($x - $ox) - sin($a) * ($y - $oy) );
+        $dy = 150 + ( sin($a) * ($x - $ox) + cos($a) * ($y - $oy) );
+
+        return array($dx, $dy);
     }
 
     private function createFilterForm()
