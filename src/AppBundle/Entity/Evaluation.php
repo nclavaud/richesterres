@@ -232,7 +232,7 @@ class Evaluation
     /**
      * Set farmWebsiteUrl
      *
-     * @param string $farmWebsiteUrl
+     * @param string $url
      *
      * @return Evaluation
      */
@@ -256,7 +256,7 @@ class Evaluation
     /**
      * Set farmPhotoUrl
      *
-     * @param string $farmPhotoUrl
+     * @param string $url
      *
      * @return Evaluation
      */

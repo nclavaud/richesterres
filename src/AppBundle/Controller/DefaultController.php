@@ -37,7 +37,7 @@ class DefaultController extends Controller
      * @Route("/{id}", name="detail")
      * @Template("AppBundle::detail.html.twig")
      */
-    public function detailAction(Evaluation $evaluation, Request $request)
+    public function detailAction(Evaluation $evaluation)
     {
         return array(
             'evaluation' => $evaluation,
