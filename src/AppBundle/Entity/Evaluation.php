@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Form\EvaluationType;
-
+use AppBundle\ValueObject\Rating;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -275,6 +275,11 @@ class Evaluation
     public function getFarmPhotoUrl()
     {
         return $this->farmPhotoUrl;
+    }
+
+    public function getRating()
+    {
+        return new Rating($this->ratingEnvironment, $this->ratingSocial, $this->ratingHealth);
     }
 
     /**
