@@ -2,6 +2,8 @@
 
 namespace AppBundle\Twig;
 
+use AppBundle\ValueObject\Rating;
+
 class RichesTerresExtension extends \Twig_Extension
 {
     public function getFunctions()
@@ -11,8 +13,13 @@ class RichesTerresExtension extends \Twig_Extension
         );
     }
 
-    public function rating($mid, $env, $hea, $soc)
+    public function rating(Rating $rating)
     {
+        $mid = array(150, 150);
+        $env = $this->getRotatedCoordinates(0, $rating->getEnvironmentRating()*12, 180);
+        $hea = $this->getRotatedCoordinates(0, $rating->getHealthRating()*12, -60);
+        $soc = $this->getRotatedCoordinates(0, $rating->getSocialRating()*12, 60);
+
         $html = <<<"EOT"
 <div style="position: relative; width: 300px; margin: 0 auto;">
     <svg height="300" width="300" style="position: absolute; top: 9px; left: 0px;">
@@ -30,5 +37,17 @@ EOT;
     public function getName()
     {
         return 'richesterres_extension';
+    }
+
+    private function getRotatedCoordinates($x, $y, $angle)
+    {
+        $a = deg2rad($angle);
+
+        $ox = 0;
+        $oy = 0;
+        $dx = 150 + ( cos($a) * ($x - $ox) - sin($a) * ($y - $oy) );
+        $dy = 150 + ( sin($a) * ($x - $ox) + cos($a) * ($y - $oy) );
+
+        return array($dx, $dy);
     }
 }
